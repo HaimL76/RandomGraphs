@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+
+\title{RandomGraphs}
+\author{haiml76 }
+\date{August 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+\subsection{}
+\subsection{}
+We check that $1-kp\leq{(1-p)^k}$, for all $k\in\mathbb{N}$, by induction.
+
+For $k=1$ it is trivial, for $k+1$, we have $(1-p)^{k+1}=(1-p)^k(1-p)$, and by the assumption, $(1-p)^k(1-p)\geq{(1-kp)(1-p)}=1-kp-p+kp^2=1-(k+1)p+kp^2$, but $kp^2>0$, so $(1-p)^{k+1}=(1-p)^k(1-p)\geq{1-(k+1)p+kp^2}>1-(k+1)p$, which proves the assumption.
+
+But it means that for each potential edge $e$, 
+
+$\mathbb{P}[e\notin{G\sim{G(n,kp)}}]=1-kp\leq(1-p)^k=(\mathbb{P}[e\notin{G\sim{G(n,p)}}])^k=\mathbb{P}[e\notin{G\sim\bigcup_{i=1}^{k}G(n,p)}]\Rightarrow{\mathbb{P}[e\in{G\sim{G(n,kp)}}]\geq{\mathbb{P}[e\in{G\sim\bigcup_{i=1}^{k}G(n,p)]}}}$, 
+
+but by a theorem coming from staged exposure, it means that if $A$ is an increasing monotonic property, then $\mathbb{P}[G\sim{G(n,kp)}\in{A}]\geq{\mathbb{P}[G\sim\bigcup_{i=1}^{k}G(n,p)\in{A}]}\Rightarrow{\mathbb{P}[G\sim{G(n,kp)}\notin{A}]\leq{\mathbb{P}[G\sim\bigcup_{i=1}^{k}G(n,p)\notin{A}]}=(\mathbb{P}[G\sim{G(n,p)}\notin{A}]})^k$
+\end{document}
