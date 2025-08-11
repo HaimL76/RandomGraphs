@@ -24,4 +24,13 @@ But it means that for each potential edge $e$,
 $\mathbb{P}[e\notin{G\sim{G(n,kp)}}]=1-kp\leq(1-p)^k=(\mathbb{P}[e\notin{G\sim{G(n,p)}}])^k=\mathbb{P}[e\notin{G\sim\bigcup_{i=1}^{k}G(n,p)}]\Rightarrow{\mathbb{P}[e\in{G\sim{G(n,kp)}}]\geq{\mathbb{P}[e\in{G\sim\bigcup_{i=1}^{k}G(n,p)]}}}$, 
 
 but by a theorem coming from staged exposure, it means that if $A$ is an increasing monotone property, then $\mathbb{P}[G\sim{G(n,kp)}\in{A}]\geq{\mathbb{P}[G\sim\bigcup_{i=1}^{k}G(n,p)\in{A}]}\Rightarrow{\mathbb{P}[G\sim{G(n,kp)}\notin{A}]\leq{\mathbb{P}[G\sim\bigcup_{i=1}^{k}G(n,p)\notin{A}]}=(\mathbb{P}[G\sim{G(n,p)}\notin{A}]})^k$
+
+\subsection{}
+$\omega(n)\rightarrow{\infty}$
+
+Let $n_k:=\min\{n\in\mathbb{N} : \lfloor\omega(n_k)\rfloor\geq{k}\}$, we are guaranteed to have such $n_k$ for every $k\geq{1}$, otherwise there exists some $k_0$ s.t. $\lfloor\omega(n)\rfloor\leq{k_0}$ for every $n\in\mathbb{N}$, in contradiction to $\omega(n)\rightarrow\infty$. 
+Hence, for every $k\geq{1}$ we have $n_k\in\mathbb{N}$, s.t. $\mathbb{P}[G(n_k,\omega(n_k)p^{\ast})\notin{A}]\leq{\mathbb{P}[G(n_k,kp^{\ast})\notin{A}]}$, this is true because $\omega(n)\geq\lfloor\omega(n)\rfloor\geq{k}$ and $A$ is a monotone increasing property. But from 1.2 we know that $\mathbb{P}[G(n_k,kp^{\ast})\notin{A}]\leq{(\mathbb{P}[G(n_k,p^{\ast})\notin{A}])^k}$, but $\lim_{k\rightarrow\infty}(\mathbb{P}[G(n_k,p^{\ast})\notin{A}])^k=\lim_{k\rightarrow\infty}\frac{1}{2^k}=0\Rightarrow{\lim_{n\rightarrow\infty}\mathbb{P}[G(n,\omega{p^{\ast}})\in{A}]}=1$.
+
+For $\mathbb{P}[G(n,\frac{p^{\ast}}{\omega(n)})\in{A}]$, we observe that $0\leq{p^{\ast}}\leq{1}\Rightarrow{\lim_{n\rightarrow\infty}\frac{p^{\ast}}{\omega(n)}}\leq{\lim_{n\rightarrow\infty}\frac{1}{\omega(n)}}=0$, as $\omega(n)$ tends to infinity.
+But then $\lim_{n\rightarrow\infty}\mathbb{P}[G(n,\frac{p^{\ast}}{\omega(n)})\in{A}]=\lim_{p\rightarrow{0}}\mathbb{P}[G(n,p)\in{A}]=\mathbb{P}[G(n,0)\in{A}]$, as $\mathbb{P}[G(n,p)\in{A}]$ is continuous, but from 1.1 we know that $\mathbb{P}[G(n,0)\in{A}]=0$.
 \end{document}

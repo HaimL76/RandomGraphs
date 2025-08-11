@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.14)  7 AUG 2025 12:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.12) (preloaded format=pdflatex 2024.1.14)  11 AUG 2025 22:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -192,7 +192,7 @@ n/10 [\OML/cmm/m/it/10 G \OMS/cmsy/m/n/10 ^^X [] 2 \OML/cmm/m/it/10 A\OT1/cmr/m
 
 [1
 
-{C:/Users/isila/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+{C:/Users/isila/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
 (RandomGraphs.aux)
  ***********
 LaTeX2e <2023-11-01>
@@ -202,7 +202,7 @@ L3 programming layer <2024-01-04>
 Here is how much of TeX's memory you used:
  2114 strings out of 474486
  32524 string characters out of 5743755
- 1938528 words of memory out of 5000000
+ 1940528 words of memory out of 5000000
  24404 multiletter control sequences out of 15000+600000
  565624 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -220,11 +220,12 @@ isila/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
 /Users/isila/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
 pfb><C:/Users/isila/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb><C:/Users/isila/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy7.pfb><C:/Users/isila/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb>
-Output written on RandomGraphs.pdf (1 page, 132596 bytes).
+msfonts/cm/cmsy5.pfb><C:/Users/isila/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb><C:/Users/isila/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on RandomGraphs.pdf (2 pages, 147714 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
+ 79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
