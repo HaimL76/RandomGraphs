@@ -26,11 +26,39 @@ $\mathbb{P}[e\notin{G\sim{G(n,kp)}}]=1-kp\leq(1-p)^k=(\mathbb{P}[e\notin{G\sim{G
 but by a theorem coming from staged exposure, it means that if $A$ is an increasing monotone property, then $\mathbb{P}[G\sim{G(n,kp)}\in{A}]\geq{\mathbb{P}[G\sim\bigcup_{i=1}^{k}G(n,p)\in{A}]}\Rightarrow{\mathbb{P}[G\sim{G(n,kp)}\notin{A}]\leq{\mathbb{P}[G\sim\bigcup_{i=1}^{k}G(n,p)\notin{A}]}=(\mathbb{P}[G\sim{G(n,p)}\notin{A}]})^k$
 
 \subsection{}
-$\omega(n)\rightarrow{\infty}$
+$\omega:=g(n)$, s.t. $\lim_{n\rightarrow\infty}g(n)=\infty$ and $\lim_{n\rightarrow\infty}\frac{g(n)}{n}=0$.
 
-Let $n_k:=\min\{n\in\mathbb{N} : \lfloor\omega(n_k)\rfloor\geq{k}\}$, we are guaranteed to have such $n_k$ for every $k\geq{1}$, otherwise there exists some $k_0$ s.t. $\lfloor\omega(n)\rfloor\leq{k_0}$ for every $n\in\mathbb{N}$, in contradiction to $\omega(n)\rightarrow\infty$. 
-Hence, for every $k\geq{1}$ we have $n_k\in\mathbb{N}$, s.t. $\mathbb{P}[G(n_k,\omega(n_k)p^{\ast})\notin{A}]\leq{\mathbb{P}[G(n_k,kp^{\ast})\notin{A}]}$, this is true because $\omega(n)\geq\lfloor\omega(n)\rfloor\geq{k}$ and $A$ is a monotone increasing property. But from 1.2 we know that $\mathbb{P}[G(n_k,kp^{\ast})\notin{A}]\leq{(\mathbb{P}[G(n_k,p^{\ast})\notin{A}])^k}$, but $\lim_{k\rightarrow\infty}(\mathbb{P}[G(n_k,p^{\ast})\notin{A}])^k=\lim_{k\rightarrow\infty}\frac{1}{2^k}=0\Rightarrow{\lim_{n\rightarrow\infty}\mathbb{P}[G(n,\omega{p^{\ast}})\in{A}]}=1$.
+Let $n_k:=\min\{n\in\mathbb{N} : \lfloor{g(n_k)}\rfloor\geq{k}\}$, we are guaranteed to have such $n_k$ for every $k\geq{1}$, otherwise there exists some $k_0$ s.t. $\lfloor{g(n)}\rfloor\leq{k_0}$ for every $n\in\mathbb{N}$, in contradiction to $g(n)\rightarrow\infty$. 
+Hence, for every $k\geq{1}$ we have $n_k\in\mathbb{N}$, s.t. $\mathbb{P}[G(n_k,g(n_k)p^{\ast})\notin{A}]\leq{\mathbb{P}[G(n_k,kp^{\ast})\notin{A}]}$, this is true because $g(n)\geq\lfloor{g(n)}\rfloor\geq{k}$ and $A$ is a monotone increasing property. But from 1.2 we know that $\mathbb{P}[G(n_k,kp^{\ast})\notin{A}]\leq{(\mathbb{P}[G(n_k,p^{\ast})\notin{A}])^k}$, but $\lim_{k\rightarrow\infty}(\mathbb{P}[G(n_k,p^{\ast})\notin{A}])^k=\lim_{k\rightarrow\infty}\frac{1}{2^k}=0\Rightarrow{\lim_{n\rightarrow\infty}\mathbb{P}[G(n,g(n){p^{\ast}})\in{A}]}=\lim\mathbb{P}[G(n,\omega{p^{\ast}})\in{A}]=1$.
 
-For $\mathbb{P}[G(n,\frac{p^{\ast}}{\omega(n)})\in{A}]$, we observe that $0\leq{p^{\ast}}\leq{1}\Rightarrow{\lim_{n\rightarrow\infty}\frac{p^{\ast}}{\omega(n)}}\leq{\lim_{n\rightarrow\infty}\frac{1}{\omega(n)}}=0$, as $\omega(n)$ tends to infinity.
-But then $\lim_{n\rightarrow\infty}\mathbb{P}[G(n,\frac{p^{\ast}}{\omega(n)})\in{A}]=\lim_{p\rightarrow{0}}\mathbb{P}[G(n,p)\in{A}]=\mathbb{P}[G(n,0)\in{A}]$, as $\mathbb{P}[G(n,p)\in{A}]$ is continuous, but from 1.1 we know that $\mathbb{P}[G(n,0)\in{A}]=0$.
+For $\mathbb{P}[G(n,\frac{p^{\ast}}{g(n)})\in{A}]$, we observe that $0\leq{p^{\ast}}\leq{1}\Rightarrow{\lim_{n\rightarrow\infty}\frac{p^{\ast}}{g(n)}}\leq{\lim_{n\rightarrow\infty}\frac{1}{g(n)}}=0$, as $g(n)$ tends to infinity.
+But then $\lim_{n\rightarrow\infty}\mathbb{P}[G(n,\frac{p^{\ast}}{g(n)})\in{A}]=\lim_{p\rightarrow{0}}\mathbb{P}[G(n,p)\in{A}]=\mathbb{P}[G(n,0)\in{A}]$, as $\mathbb{P}[G(n,p)\in{A}]$ is continuous, but from 1.1 we know that $\mathbb{P}[G(n,0)\in{A}]=0$.
+
+\section{}
+We shall partially repeat some well-known facts. Let $G\sim{G(n,p)}$, the probability of having at least one triangle in $G$ has a threshold. Let $T$ be the number of triangles in $G$, then $\mathbb{E}[T]=\binom{n}{3}p^3\Rightarrow{\lim_{n\rightarrow\infty}}\mathbb{E}[T]=\lim_{n\rightarrow\infty}\binom{n}{3}p^3=\lim_{n\rightarrow\infty}\frac{n(n-1)(n-2)}{3!}p^3$. For every $0\leq{p(n)}\leq{1}$, we have 
+
+$\lim_{n\rightarrow\infty}\frac{n(n-1)(n-2)}{6}p(n)^3=     \begin{cases}
+       0 & p(n)<<\frac{1}{n}\Rightarrow{\lim_{n\rightarrow\infty}p(n)}=0\\
+       1 & p(n)>>\frac{1}{n}\Rightarrow{\lim_{n\rightarrow\infty}p(n)}=\infty\\
+     \end{cases}$
+But by Markov's inequality, $\mathbb{P}[T\geq{1}]\leq\frac{\mathbb{E}[T]}{1}$, so in the case of $p(n)<<\frac{1}{n}$ we have that $\lim_{n\rightarrow\infty}\mathbb{P}[T\geq{1}]\leq{lim_{n\rightarrow\infty}\mathbb{E}[T]=0}$.
+For $p>>\frac{1}{n}$, we use the second moment method, we have the inequality $\mathbb{P}[T\geq{1}]\geq{\frac{\mathbb{E}[T]^2}{\mathbb{E}[T^2]}}=\frac{[\binom{n}{3}p^3]^2}{\mathbb{E}[T^2]}$. But $T^2=\sum\{i,j,k\}\sum\{f,g,h\}$, where $\{i,j,k\}$ and $\{f,g,h\}$ are triplets of vertices. There are different ways to choose one triplet and then choose a second triplet, the one that yields the largest count of vertices is when $\{i,j,k\}\cap\{f,g,h\}=\phi$, we denote $T_0$ the potential number of triplets in the case of the intersection being $\phi$, which means no joint vertex, $T_1$ the case of one joint vertex, $T_2$ the case of two joint vertices, and $T_3$ the case of choosing the same triangle twice.
+
+Thus $T_0=\binom{n}{3}\binom{n-3}{3}$. 
+
+For $T_1$ we have $\binom{n}{3}$ choices of the first triplet, and $3$ options for choosing one of the vertices of the first triplet, and then $\binom{n-3}{2}$ choices for the other two vertices of the second triplet, so $T_1=3\binom{n}{3}\binom{n-3}{2}$, and $T_2=3\binom{n}{3}(n-3)$, and $T_3=\binom{n}{3}$. 
+
+We observe that in the case of $T_0$ and the case of $T_1$ we have $6$ distinct edges for every two triangles, so their probability is $p^6$, but in the case of $T_2$ we have one joint edges, so only 5 distinct edges for every two triangles, and in the case of choosing the same triplet twice, we have the same three edges chosen twice, but the probability for that remains $p^3$. Thus the corresponding expectations of $T_1$, $T_2$ and $T_3$ are $O(n^5p^6)$, $O(n^4p^5)$ and $O(n^3p^3)$, respectively. Thus $\frac{\mathbb{E}[T]^2}{\mathbb{E}[T^2]}=\frac{\binom{n}{3}^2p^6}{\binom{n}{3}\binom{n-3}{3}p^6+o(n^6p^6)}=1-o(1)$, but $\mathbb{P}[T\geq{1}]\geq\frac{\mathbb{E}[T]^2}{\mathbb{E}[T^2]}=1-o(1)$, which proves the threshold in the case of $p>>\frac{1}{n}$.
+
+
+
+This shows that while $\frac{1}{n}$ is a threshold for having at least one triangle in $G$, it is not a sharp threshold.
+
+For the connectedness of $G\sim{G(n,p)}$, we calculate the probability for $G$ having isolated vertices, again, through the expectation of their number. Having an isolated vertex $v_0$ means that there are $n-1$ edges missing (between $v_0$ and the other $n-1$ vertices), hence the expectation for the number of isolated vertices is $\mathbb{E}[C]=n(1-p)^{n-1}$, but $\lim_{n\rightarrow\infty}n(1-p)^{n-1}=e^{}$
+
+Thus we obtain that $log(n)$ is a sharp threshold for the connectedness of $G$.
+
+For a random graph process, we know that $\Tilde{G}_m$ has the same distribution of $G(n,m)$
+
+
 \end{document}
