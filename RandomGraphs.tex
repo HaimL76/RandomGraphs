@@ -36,7 +36,7 @@ For $\mathbb{P}[G(n,\frac{p^{\ast}}{g(n)})\in{A}]$, we observe that $0\leq{p^{\a
 But then $\lim_{n\rightarrow\infty}\mathbb{P}[G(n,\frac{p^{\ast}}{g(n)})\in{A}]=\lim_{p\rightarrow{0}}\mathbb{P}[G(n,p)\in{A}]=\mathbb{P}[G(n,0)\in{A}]$, as $\mathbb{P}[G(n,p)\in{A}]$ is continuous, but from 1.1 we know that $\mathbb{P}[G(n,0)\in{A}]=0$.
 
 \section{}
-Intuitively, we observe that for any graph on $n\geq{3}$ vertices a triangle can appear starting from $m=3$ which is a constant, but the graph cannot be connected before at least $n-1$ edges appear, which depends on $n$, so when $n\rightarrow\infty$, the distance $(n-1)-3$ also tends to infinity. But we need to prove this formally.
+Intuitively, we observe that for any finite graph on $n\geq{3}$ vertices a triangle can appear starting from $m=3$ which is a constant, but the graph cannot be connected before at least $n-1$ edges appear, which depends on $n$, so when $n\rightarrow\infty$, the distance $(n-1)-3$ also tends to infinity. But we need to prove this formally.
 We shall partially repeat some well-known facts. Let $G\sim{G(n,p)}$, the probability of having at least one triangle in $G$ has a threshold. Let $T$ be the number of triangles in $G$, then $\mathbb{E}[T]=\binom{n}{3}p^3\Rightarrow{\lim_{n\rightarrow\infty}}\mathbb{E}[T]=\lim_{n\rightarrow\infty}\binom{n}{3}p^3=\lim_{n\rightarrow\infty}\frac{n(n-1)(n-2)}{3!}p^3$. For every $0\leq{p(n)}\leq{1}$, we have 
 
 $\lim_{n\rightarrow\infty}\frac{n(n-1)(n-2)}{6}p(n)^3=     \begin{cases}
@@ -55,4 +55,64 @@ We observe that in the case of $T_0$ and the case of $T_1$ we have $6$ distinct 
 
 For connectedness, the threshold is $\frac{\log{n}}{n}$.
 We know that for a random graph process, each step $0\leq{m}\leq\binom{n}{2}$ has the same distribution of $G(n,m)$, so we translate our thresholds from $G(n,p)$ to $G(n,m)$ by taking $m=\binom{n}{2}p+O(\sqrt{\binom{n}{2}p(1-p)})$. Thus, the $G(n,m)$ threshold for triangles becomes $m_t:=\binom{n}{2}\frac{1}{n}+O(\sqrt{\binom{n}{2}\frac{1}{n}(1-\frac{1}{n})})\approx\binom{n}{2}\frac{1}{n}$, and the threshold for connectedness becomes $m_c:=\binom{n}{2}\frac{\log{n}}{n}+O(\sqrt{\binom{n}{2}\frac{\log{n}}{n}(1-\frac{\log{n}}{n})})\approx\binom{n}{2}\frac{\log{n}}{n}$. We take the sequence $M_n:=\{\frac{m_c}{m_t}\}\approx\log{n}$, but $\lim_{n\rightarrow\infty}\log{n}=\infty$, hence $\lim_{n\rightarrow\infty}\mathbb{P}[m_c\geq{m_t}]=\lim_{n\rightarrow\infty}\mathbb{P}[\frac{m_c}{m_t}\geq{1}]=\infty$.
+
+A more accurate solution is based on the book by Frieze and Karonski.
+\begin{enumerate}
+    \item Theorem 4.1 (from Erdos and Reyni)
+
+    Let $m=\frac{1}{2}n(\log{n}+c_n)$. Then
+
+    $\lim_{n\rightarrow\infty}\mathbb{P}[G\sim{G(n,m)}\in\mathcal{C}]=\begin{cases}
+        0, & c_n\rightarrow{-\infty} \\
+        e^{-e^{-c}}, & c_n\rightarrow{c} \\
+        1, & c_n\rightarrow\infty \\
+    \end{cases}$
+
+    where $\mathcal{C}$ is the property of being connected, and $c$ is some constant.
+
+    \item Theorem 1.12
+    
+    If $\lim_{n\rightarrow\infty}\frac{m}{n}=\infty$ then $\lim_{n\rightarrow\infty}\mathbb{P}[G\sim{G(n,m)}\in\mathcal{T}]=1$, where $\mathcal{T}$ is the property of having at least one triangle.
+
+    \item Using the two theorems above. Let $c_0$ be some constant, and $m_0:=\frac{1}{2}n(\log{n}+c_0)$, then $\lim_{n\rightarrow\infty}\frac{m_0}{n}=\lim_{n\rightarrow\infty}\frac{n(\log{n}+c_0)}{2n}=\lim_{n\rightarrow\infty}\frac{\log{n}+c_0}{2}=\infty\Rightarrow{\lim_{n\rightarrow\infty}\mathbb{P}[G\sim{G(n,m_0)}\in\mathcal{T}]}=1$, by theorem 4.1, but $\lim_{n\rightarrow\infty}\mathbb{P}[G\sim{G(n,m_0)}\in\mathcal{C}]=e^{-e^{-c_0}}$, by theorem 1.12, which proves the claim.
+    
+\end{enumerate}
+\section{}
+We use the fact that a graph $G$ is planar only if $G$ is 5-degenerate. To illustrate a 5-degenerate graph on $n$ vertices, we choose a permutation $\sigma$ of the vertices, so each vertex $i\in[n]$ is assigned with the image $\sigma(i)$, and we arrange all the vertices in one row, from left to right, that is $\sigma(1),\sigma(2),\dots,\sigma(n)$. Suppose we have such an arrangement, and we want to construct a maximal 5-degenerate graph. We do this by going over every $i\in\sigma([n])$, and drawing 5 edges between $i$ and 5 of its predecessors. Easy to show that there are no other edges except the ones drawn by this procedure, because any edge from $i$ to another vertex $j$ is either included in the 5 edges from $i$ to its predecessors if $j<i$, or included in the 5 edges from $j$ to its predecessors if $i<j$. Hence, the number of edges in a 5-degenerate graph is $m\leq{5n}$ (minus a constant, because of the first 5 vertices). Fix some arrangement $\sigma_0$ and some $m_0\leq{5n}$, so the total number of possible 5-degenerated graphs with $m_0$ edges, for the arrangement $\sigma_0$, is $\binom{5n}{m_0}$, but then, the total number of graphs with $m_0$ edges is $n!\binom{5n}{m_0}$, because there are $n!$ permutations on $[n]$. Denote the property $\mathcal{P}$ that a graph $G$ is planar, so $\mathbb{P}[G\sim{G(n,m_0)}\in\mathcal{P}]\leq{\frac{n!\binom{5n}{m_0}}{\binom{N}{m_0}}}\leq{n!(\frac{5n}{N})^{m_0}}=n!\frac{5n}{\frac{n(n-1)}{2}}=n!(\frac{10}{n-1})^{m_0}$. By Stirling, we have $\mathbb{P}[G\sim{G(n,m_0)}]\approx{\sqrt{2\pi{n}}(\frac{n}{e})^n(\frac{10}{n-1})^{m_0}}=\sqrt{2\pi{n}}\cdot{n^n}{e^{-n}}{10^{m_0}}{(n-1)^{-m_0}}$. Take $m_0=(1+\epsilon)n$, for an arbitrary $\epsilon>0$, so $\mathbb{P}[G\sim{G(n,m_0)}]\approx{\sqrt{2\pi}\cdot{e^{-n}n^{\frac{1}{2}+n-n(1+\epsilon)}10^{(1+\epsilon)n}}}=\sqrt{2\pi}\cdot{e^{-n}n^{\frac{1}{2}-\epsilon{n}}10^{(1+\epsilon)n}}$, but $n^{\frac{1}{2}-\epsilon{n}}$ goes to zero faster than $10^{(1+\epsilon)n}$ goes to infinity, thus $\lim_{n\rightarrow\infty}\mathbb{P}[G\sim{G(n,n(1+\epsilon))}\in\mathcal{P}]=0\Rightarrow\lim_{n\rightarrow\infty}\mathbb{P}[G\sim{G(n,n(1+\epsilon))}\notin\mathcal{P}]=1$.
+
+
+
+
+
+
+We prove this through the $G(n,p)$ model. Let $p=p(n)$ be a probability for which $\omega=\omega(n)=np\rightarrow\infty$ as $n\rightarrow\infty$, but $\omega(n)\leq{\log{n}}$. Denote by $T$ the number of triangles in $G$, so $\mathbb{E}T=\binom{n}{3}p^3=\frac{n(n-1)(n-2)}{3!}p^3\approx\frac{n^3}{6}p^3=\frac{(np)^3}{6}\rightarrow\infty$. Denote by $m_t$ the number of triangles $m_t=\binom{m}{3}$, then $\mathbb{E}T^2=\sum_{i,j=1}^{m_t}\mathbb{P}[T_i,T_j\in{G}]=\sum_{i=1}^{m_t}\mathbb{P}[T_i\in{G}]\sum_{j=1}^{m_t}\mathbb{P}[T_j\in{G}|T_i\in{G}]$. But the probability is equal for each of the triangles, hence $\mathbb{E}T^2=m_t\mathbb{P}[T_i\in{G}]\sum_{j=1}^{m_t}\mathbb{P}[T_j\in{G}|T_i\in{G}]=\mathbb{E}T\sum_{j=1}^{m_t}\mathbb{P}[T_j\in{G}|T_i\in{G}]$
+
+The conditional expectation 
+depends on the number of joint edges,
+
+$3$: this is the case where the two triangles are identical, so $\sum_{j=1}^{m_t}\mathbb{P}[T_j\in{G}|T_i\in{G}]=1$.
+
+$2$: there is no such case.
+
+$1$: we have $3$ ways to choose two joint vertices and one new vertex, so $\sum_{j=1}^{m_t}\mathbb{P}[T_j\in{G}|T_i\in{G}]=3(n-3)p^2$
+
+$0$: we have $\binom{n-3}{3}$ ways to choose three new vertices, and we have $3$ ways to choose one joint vertex and two other vertices, so $\sum_{j=1}^{m_t}\mathbb{P}[T_j\in{G}|T_i\in{G}]=\binom{n-3}{3}p^3+3\binom{n-1}{2}p^2$.
+
+
+
+
+
+
+
+
+$\mathbb{E}X=\binom{n}{2}p^9$
+
+$p=\frac{1}{n^{\frac{6}{3}}}\Rightarrow\mathbb{E}X=\frac{n^6}{6}\frac{1}{(n^{\frac{2}{3}-\epsilon})^9}=\frac{n^6}{n^{5+a}}$
+
+$\mathbb{P}[X>0]\geq{\frac{(\mathbb{E}[X])^2}{\mathbb{E}[X^2]}}$
+
+$p>\frac{1}{n^{\frac{2}{3}}}\Rightarrow{m=p\binom{n}{2}}=\frac{n(n-1)}{2n^{\frac{2}{3}}}=\frac{n^2}{2n^{\frac{2}{3}}}=\frac{n^{2-\frac{2}{3}}}{2}=\frac{n^{\frac{4}{3}}}{2}$
+
+
+$m=p\binom{n}{2}=n(1+\epsilon)\Rightarrow\frac{n(n-1)}{2}p=n(1+\epsilon)\Rightarrow\frac{n-1}{2}p=1+\epsilon\rightarrow{p=\frac{2(1+\epsilon)}{n-1}}$
 \end{document}
